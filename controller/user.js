@@ -1,6 +1,6 @@
 const { UserModel } = require("../models/user.model");
 
-const createuser = async (req, res) => {
+const adduser = async (req, res) => {
     try {
         const { name, role, email, phone } = req.body;
 
@@ -111,7 +111,7 @@ const updateUser = async (req, res) => {
 
         if (!id) return res.status(400).send({
             status: false,
-            msg: "No ID provided"
+            msg: "Id doesn't exits."
         });
 
         const updatedUser = await UserModel.findByIdAndUpdate(
@@ -137,7 +137,7 @@ const updateUser = async (req, res) => {
 };
 
 module.exports = {
-    createuser,
+    adduser,
     getUser,
     getUserById,
     deleteUser,
