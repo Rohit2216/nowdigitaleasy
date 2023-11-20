@@ -7,6 +7,13 @@ const app = express()
 
 app.use(express.json());
 
+app.get("/",(req,res)=>{
+    res.status(201).json({
+        status:true,
+        msg:"welcome to homepage"
+    })
+})
+
 app.use("/user",userRoute)
 
 
